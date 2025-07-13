@@ -1,12 +1,22 @@
+import CompanionCard from '@/components/CompanionCard'
+import CompanionsList from '@/components/CompanionsList'
+import CTA from '@/components/CTA'
 import React from 'react'
-import { Button } from '@/components/ui/button'
 
 const Page = () => {
   return (
-    <div>
-      <h1 className='text-2xl italic'>Welcome to my saas app</h1>
-      <Button>Click Me</Button>
-    </div>
+    <main>
+      <h1 className='text-2xl italic'>Popular Companions</h1>
+      <section className='home-section'>
+        <CompanionCard />
+        <CompanionCard />
+        <CompanionCard />
+      </section>
+      <section className='home-section'>
+        <CompanionsList />
+        <CTA />
+      </section>
+    </main>
   )
 }
 
