@@ -8,16 +8,17 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-import { cn } from '@/lib/utils'
+import { cn, getSubjectColor } from '@/lib/utils'
 import Link from 'next/link'
 import Image from 'next/image'
 
 interface companionsListProps {
     title: string,
+    subject: string,
     companions?: Companion[]
     className?: string
 }
-const CompanionsList = ({ title, companions, className }: companionsListProps) => {
+const CompanionsList = ({ title, subject, companions, className }: companionsListProps) => {
     return (
         <article className={cn("companion-list", className)}>
             <h2 className='font-bold text-3xl'>Recent Sessions</h2>
@@ -35,7 +36,7 @@ const CompanionsList = ({ title, companions, className }: companionsListProps) =
                             <TableCell>
                                 <Link href={`/companions/${companion.id}`}>
                                     <div className='flex items-center gap-2'>
-                                        <div className='size-[72px] flex items-center justify-center rounded-lg max-md:hidden'>
+                                        <div className='size-[72px] flex items-center justify-center rounded-lg max-md:hidden' style={{ backgroundColor: getSubjectColor(subject) }}>
                                             <Image src={`/icons/${companion.subject}.svg`} alt="subject" width={35} height={35} />
                                         </div>
                                     </div>
