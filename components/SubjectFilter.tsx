@@ -8,8 +8,7 @@ import {
     SelectValue,
 } from "./ui/select";
 import { subjects } from "@/constants";
-import { useRouter } from "next/navigation";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { formUrlQuery, removeKeysFromUrlQuery } from "@jsmastery/utils";
 
 const SubjectFilter = () => {
