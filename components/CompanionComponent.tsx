@@ -1,6 +1,6 @@
 "use client"
 
-import { getSubjectColor } from '@/lib/utils'
+import { configureAssistant, getSubjectColor } from '@/lib/utils'
 import { vapi } from '@/lib/vapi.sdk'
 import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 import Image from 'next/image'
@@ -77,11 +77,13 @@ const CompanionComponent = ({ companionId, userName, userImage, subject, name, t
 
       ]
     }
-    vapi.start()
+    // @ts-expect-error
+    vapi.start(configureAssistant(voice, style), assistantOverrides)
   }
 
   const handleDisconnect = async () => {
-
+    setCallStatus(CallStatus.FINISHED)
+    vapi.stop()
   }
   
   return (
