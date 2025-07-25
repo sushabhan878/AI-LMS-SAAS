@@ -64,7 +64,20 @@ const CompanionComponent = ({ companionId, userName, userImage, subject, name, t
   }
 
   const handleConnect = async () => {
+    setCallStatus(CallStatus.CONNECTING)
 
+    const assistantOverrides = {
+      variableValues: {
+        subject, topic, style
+      },
+      clientMessages: [
+        "transcript"
+      ],
+      serverMessages: [
+
+      ]
+    }
+    vapi.start()
   }
 
   const handleDisconnect = async () => {
