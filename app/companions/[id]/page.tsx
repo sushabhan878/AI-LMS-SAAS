@@ -1,3 +1,4 @@
+import CompanionComponent from '@/components/CompanionComponent'
 import { getCompanion } from '@/lib/actions/companion.action'
 import { getSubjectColor } from '@/lib/utils'
 import { currentUser } from '@clerk/nextjs/server'
@@ -38,6 +39,7 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
                 </div>
                 <div className='items-start text-2xl max-md:hidden'>{ companion.duration } minutes</div>
             </article>
+            <CompanionComponent/>
         </main>
     )
 }
