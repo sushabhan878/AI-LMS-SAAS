@@ -11,7 +11,12 @@ const SearchInput = () => {
     const searchParams = useSearchParams()
 
     const query = searchParams.get("topic") || ""
-    const [searchQuery, setSearchQuery] = useState("")
+    const [searchQuery, setSearchQuery] = useState(query)
+
+    // Update searchQuery when URL changes
+    useEffect(() => {
+        setSearchQuery(query)
+    }, [query])
 
 
     // Changing the url in urlBar
@@ -35,6 +40,7 @@ const SearchInput = () => {
             }
         }, 500);
 
+        return () => clearTimeout(delayDebounceFn);
     }, [searchQuery, router, searchParams, pathname])
 
     return (

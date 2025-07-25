@@ -28,7 +28,7 @@ export const getAllCompanions = async ({limit= 10, page= 1, subject = '', topic 
         query = query.or(`topic.ilike.%${topic}%,name.ilike.%${topic}%`)
     }
 
-    query = query.range((page - 1) * limit, page * (limit - 1))
+    query = query.range((page - 1) * limit, page * limit - 1)
     const { data: companions, error } = await query
     
     if (error) {

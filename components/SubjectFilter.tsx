@@ -14,9 +14,14 @@ import { formUrlQuery, removeKeysFromUrlQuery } from "@jsmastery/utils";
 const SubjectFilter = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
-    const query = searchParams.get("subject") || "";
+    const query = searchParams.get("subject") || "all";
 
     const [subject, setSubject] = useState(query);
+
+    // Update subject when URL changes
+    useEffect(() => {
+        setSubject(query);
+    }, [query]);
 
     useEffect(() => {
         let newUrl = "";

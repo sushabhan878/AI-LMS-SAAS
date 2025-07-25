@@ -8,7 +8,7 @@ import React from 'react'
 
 const CompanionLibrary = async ({ searchParams }: SearchParams) => {
     const filteres = await searchParams;
-    const subject = filteres?.subject ? filteres.subjects : "";
+    const subject = filteres?.subject ? filteres.subject : "";
     const topic = filteres?.topic ? filteres.topic : "";
 
     const companions = await getAllCompanions({
