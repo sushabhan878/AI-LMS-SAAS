@@ -16,7 +16,6 @@ const CompanionLibrary = async ({ searchParams }: SearchParams) => {
         topic: typeof topic === 'string' ? topic : undefined
     })
 
-    console.log(companions)
     return (
         <main className=''>
             <section className='flex justify-between gap-4 max-sm:flex--col'>
