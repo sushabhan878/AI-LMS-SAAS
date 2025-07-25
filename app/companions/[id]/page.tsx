@@ -9,9 +9,6 @@ interface CompanionSessionPageProps {
     params: Promise<{id: string}>
 }
 
-
-
-
 const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
     
     const {id} = await params
@@ -39,7 +36,13 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
                 </div>
                 <div className='items-start text-2xl max-md:hidden'>{ companion.duration } minutes</div>
             </article>
-            <CompanionComponent/>
+            <CompanionComponent
+                {...companion}
+                companionId = {id}
+                userName = {user.firstName!}
+                userImage = {user.imageUrl!}
+
+            />
         </main>
     )
 }
