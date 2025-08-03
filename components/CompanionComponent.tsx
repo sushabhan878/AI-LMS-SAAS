@@ -6,6 +6,7 @@ import Lottie, { LottieRefCurrentProps } from 'lottie-react'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import soundwaves from '@/constants/soundwaves.json'
+import { addToSessionHistory } from '@/lib/actions/companion.action'
 
 enum CallStatus {
   INACTIVE,
@@ -26,7 +27,7 @@ const CompanionComponent = ({ companionId, userName, userImage, subject, name, t
     const onCallStart = () => setCallStatus(CallStatus.ACTIVE)
     const onCallEnded = () => {
       setCallStatus(CallStatus.FINISHED)
-      // addToSessionHistory(companionId)
+      addToSessionHistory(companionId)
     }
 
     const onMessage = (message: Message) => {
