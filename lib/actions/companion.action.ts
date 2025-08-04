@@ -58,7 +58,7 @@ export const addToSessionHistory = async (companionId: string) => {
 
 export const getRecentSessions = async ({ limit = 10 }: { limit?: number }) => {
     const supabase = createSupabaseClient()
-    const {data, error} = await supabase.from("session_history").select("companions:companion_id (*)").order("created_at", {ascending: false}).limit(limit)
+    const {data, error} = await supabase.from("session_history").select("companions:copanion_id (*)").order("created_at", {ascending: false}).limit(limit)
 
     if(error) throw new Error(error.message)
     return data.map(({ companions }) => (
